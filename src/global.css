@@ -1,0 +1,90 @@
+/****** CONFIGURATION ******/
+
+:root {
+  /* colors */
+  --color-tomato: #e92e2b;
+  --color-green: #0d5039;
+  --color-white: #ffffff;
+}
+
+/***** FONTS *****/
+
+@font-face {
+  font-display: swap;
+  font-family: 'Londrina Solid';
+  font-style: normal;
+  font-weight: 300;
+  src: url('assets/fonts/londrina-solid-v17-latin-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Londrina Solid';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/londrina-solid-v17-latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Londrina Solid';
+  font-style: normal;
+  font-weight: 900;
+  src: url('assets/fonts/londrina-solid-v17-latin-900.woff2') format('woff2');
+}
+
+/***** BASIC TYPOGRAPHY *****/
+
+html {
+  font-size: 10px;
+  font-family: Ubuntu, Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  font-size: 1.8rem;
+  background-color: var(--color-tomato);
+  color: var(--color-white);
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+  font-size: 15rem;
+  margin: 0;
+}
+
+
+
+
+
+
+:focus-visible {
+  outline: 0.2rem solid var(--color-green);
+  outline-offset: 0.3rem;
+}
+
+a {
+  color: var(--color-white);
+
+  &:hover {
+    color: var(--color-white);
+  }
+}
+
+
+/***** FROM TEMPLATE *****/
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import { Slide } from '@progress/kendo-react-animation';
+import { Notification } from '@progress/kendo-react-notification';
+import '@progress/kendo-theme-default/dist/all.css';
+import './App.css';
+import tomatoImage from './images/tomato-with-stem.png';
+import PlantSection from './components/PlantSection';
+import WishlistSection from './components/WishlistSection';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showTomato, setShowTomato] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
+
+  // Trigger the animation when the component mounts
+  useEffect(() => {
+    setShowTomato(true);
+  }, []);
+
+  // Callback function to handle notification
+  const handlePlantAdded = () => {
+    setShowNotification(true);
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 3000);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="content">
+      <div className="tomato-image-container">
+        <Slide direction="down" transitionEnterDuration={1000} transitionExitDuration={1000}>
+          {showTomato && (
+            <img src={tomatoImage} alt="Three tomatoes on a stem" className="tomato-image" />
+          )}
+        </Slide>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <header>
+        <h1>TOMATO TRACKER</h1>
+        <span className="subheadline">Track the growth and taste of your tomatoes!</span>
+      </header>
+      <main>
+        {/* Use the PlantSection component */}
+        <PlantSection onPlantAdded={handlePlantAdded} />
+
+        {/* Use the WishlistSection component */}
+        <WishlistSection />
+      </main>
+      <footer>
+        <p>© 2025 TomatoTracker. All rights reserved.</p>
+      </footer>
+
+      {showNotification && (
+        <Notification
+          style={{
+            position: 'fixed',
+            bottom: '20px',
+            right: '20px',
+          }}
+          type={{ style: 'success', icon: true }}
+        >
+          New plant added successfully!
+        </Notification>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
