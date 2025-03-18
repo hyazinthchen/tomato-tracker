@@ -1,0 +1,10 @@
+.delete-plant-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  .k-input-md {
+    width: fit-content;
+  }
+}

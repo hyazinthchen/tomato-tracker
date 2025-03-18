@@ -1,0 +1,24 @@
+.plant-section {
+  background: var(--color-dark-tomato);
+  padding: 3rem;
+  border-radius: 1rem;
+
+  .form-wrapper {
+    display: flex;
+    gap: 6.4rem;
+    padding-top: 3.2rem;
+
+    > div {
+      width: 50%;
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      gap: 3.2rem;
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.add-plant-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  > .k-button:last-child {
+    width: fit-content;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+.k-input,
+.k-numerictextbox,
+.k-rating {
+  width: 100%;
+}
+
+.k-form-error {
+  color: var(--color-white);
+  font-size: 1.6rem;
+}
+
+.k-rating-container .k-rating-item svg {
+  fill: #ffffff;
+}

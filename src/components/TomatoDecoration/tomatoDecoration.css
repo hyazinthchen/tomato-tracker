@@ -1,0 +1,15 @@
+.tomato-image-container {
+  @media (max-width: 1200px) {
+    display: none;
+  }
+
+  .tomato-image {
+    width: 18rem;
+    height: 18rem;
+    margin-top: -2.5rem;
+
+    &.flipped {
+      transform: scaleX(-1);
+    }
+  }
+}

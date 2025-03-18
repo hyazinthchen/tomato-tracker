@@ -1,0 +1,22 @@
+header {
+  max-width: 128rem;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+
+  @media (max-width: 1400px) {
+    padding-inline: 2.4rem;
+  }
+
+  .text-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3.2rem;
+  }
+
+  .subheadline {
+    font-size: 3.2rem;
+  }
+}

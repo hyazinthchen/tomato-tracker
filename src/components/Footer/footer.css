@@ -1,0 +1,18 @@
+footer {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  max-width: 128rem;
+  border-radius: 1rem 1rem 0 0;
+  margin: auto;
+  padding-inline: 2.4rem;
+  box-sizing: border-box;
+}

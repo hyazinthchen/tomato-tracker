@@ -1,62 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { Slide } from '@progress/kendo-react-animation';
+import React, { useState } from 'react';
 import { Notification } from '@progress/kendo-react-notification';
 import '@progress/kendo-theme-default/dist/all.css';
 import './App.css';
-import tomatoImage from './images/tomato-with-stem.png';
-import PlantSection from './components/PlantSection';
-import WishlistSection from './components/WishlistSection';
+import Header from './components/Header/Header';
+import PlantSection from './components/PlantSection/PlantSection';
+import WishlistSection from './components/WishlistSection/WishlistSection';
+import Footer from './components/Footer/Footer';
 
 function App() {
-  const [showTomato, setShowTomato] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
+  const [plantData, setPlantData] = useState(() => {
+    const savedData = localStorage.getItem('plants');
+    return savedData ? JSON.parse(savedData) : [];
+  });
 
-  // Trigger the animation when the component mounts
-  useEffect(() => {
-    setShowTomato(true);
-  }, []);
-
-  // Callback function to handle notification
-  const handlePlantAdded = () => {
+  const handlePlantAdded = (data) => {
+    setPlantData(data);
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
-    }, 3000);
+    }, 5000);
   };
 
   return (
-    <div className="content">
-      <div className="tomato-image-container">
-        <Slide direction="down" transitionEnterDuration={1000} transitionExitDuration={1000}>
-          {showTomato && (
-            <img src={tomatoImage} alt="Three tomatoes on a stem" className="tomato-image" />
-          )}
-        </Slide>
-      </div>
-      <header>
-        <h1>TOMATO TRACKER</h1>
-        <span className="subheadline">Track the growth and taste of your tomatoes!</span>
-      </header>
+    <div className='content'>
+      <Header />
       <main>
-        {/* Use the PlantSection component */}
         <PlantSection onPlantAdded={handlePlantAdded} />
-
-        {/* Use the WishlistSection component */}
-        <WishlistSection />
+        <WishlistSection plantData={plantData} />
       </main>
-      <footer>
-        <p>© 2025 TomatoTracker. All rights reserved.</p>
-      </footer>
+      <Footer />
 
       {showNotification && (
-        <Notification
-          style={{
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-          }}
-          type={{ style: 'success', icon: true }}
-        >
+        <Notification type={{ style: 'success', icon: true }}>
           New plant added successfully!
         </Notification>
       )}

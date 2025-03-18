@@ -1,13 +1,22 @@
-/****** CONFIGURATION ******/
+/****** CONFIG ******/
 
 :root {
   /* colors */
   --color-tomato: #e92e2b;
+  --color-dark-tomato: #b6202c;
   --color-green: #0d5039;
   --color-white: #ffffff;
 }
 
 /***** FONTS *****/
+
+@font-face {
+  font-display: swap;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('assets/fonts/roboto-v47-latin-regular.woff2') format('woff2');
+}
 
 @font-face {
   font-display: swap;
@@ -21,70 +30,57 @@
   font-display: swap;
   font-family: 'Londrina Solid';
   font-style: normal;
-  font-weight: 400;
-  src: url('assets/fonts/londrina-solid-v17-latin-regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-display: swap;
-  font-family: 'Londrina Solid';
-  font-style: normal;
   font-weight: 900;
   src: url('assets/fonts/londrina-solid-v17-latin-900.woff2') format('woff2');
 }
 
-/***** BASIC TYPOGRAPHY *****/
+/***** TYPOGRAPHY *****/
 
 html {
   font-size: 10px;
-  font-family: Ubuntu, Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   min-height: 100vh;
 }
 
 body {
   margin: 0;
-  font-size: 1.8rem;
   background-color: var(--color-tomato);
   color: var(--color-white);
   min-height: 100vh;
+
+  .k-input-md,
+  .k-button-md {
+    font-size: 1.4rem;
+  }
+
+  .k-table-md {
+    font-size: 1.2rem;
+  }
+
+  .k-label {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
 }
 
 h1 {
-  font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
-  font-size: 15rem;
+  font-size: clamp(6rem, 15.19vw + -1.291rem, 12rem);
   margin: 0;
 }
 
-
-
-
-
-
-:focus-visible {
-  outline: 0.2rem solid var(--color-green);
-  outline-offset: 0.3rem;
+h2,
+h3 {
+  font-family: 'Londrina Solid', Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  margin-top: 0;
 }
 
-a {
-  color: var(--color-white);
-
-  &:hover {
-    color: var(--color-white);
-  }
+h2 {
+  font-size: 3rem;
+  margin-bottom: 0;
 }
 
-
-/***** FROM TEMPLATE *****/
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+h3 {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
 }

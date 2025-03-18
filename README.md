@@ -14,10 +14,12 @@ Input
 NumericTextBox
 DatePicker
 Rating
-Notification
+Notification (When a new tomato plant is added to the grid)
 Button
-Listbox
-Animation (Sliding Tomato)
+Listbox (Seed Management)
+Animation (Tomato Images sliding from the top into the header of the page)
 
 # Attributions
+
+Inspired by https://www.tomatenjunkie.de/sortenuebersicht/
 <a href='https://pngtree.com/freepng/cherry-tomato-cartoon-vector_5327891.html'>png image from pngtree.com/</a>
